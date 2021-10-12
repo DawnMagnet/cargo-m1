@@ -5,6 +5,8 @@ edition = "2018"
 description = "Build Rust Universal Binary on Your M1-arm64 MacBook & Mac"
 authors = ["DawnMagnet"]
 license = "MIT OR Apache-2.0"
+categories = ["command-line-utilities", "development-tools::cargo-plugins"]
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -14,3 +16,5 @@ default-features = false
 features = [ "suggestions", "color" ]
 [dependencies.cargo]
 version = "~0.56.0"
+default-features=false
+features=["vendored-openssl"]
