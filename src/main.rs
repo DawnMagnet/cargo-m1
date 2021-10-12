@@ -49,7 +49,7 @@ pub fn get_binary_path(dir: PathBuf) -> String {
 
 fn main() {
     let author = "DawnMagnet <a188504964@gmail.com>";
-    let version = "0.1.0";
+    let version = "0.1.1";
     let app_name = "cargo-m1";
     let mut vargs = vec![];
     for argument in std::env::args_os() {
