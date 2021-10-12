@@ -51,6 +51,13 @@ fn main() {
     let author = "DawnMagnet <a188504964@gmail.com>";
     let version = "0.1.0";
     let app_name = "cargo-m1";
+    let mut vargs = vec![];
+    for argument in std::env::args_os() {
+        vargs.push(argument.to_str().unwrap().to_string());
+    }
+    if vargs[1] == "m1" {
+        vargs.remove(1);
+    }
     let matches = App::new(app_name)
         .version(version)
         .author(author)
@@ -63,7 +70,7 @@ fn main() {
                     .long("release")
                     .required(false)
                 )
-        ).get_matches();
+        ).get_matches_from(vargs);
     if let (_command, Some(nxt_match)) = matches.subcommand() {
         let is_release = nxt_match.index_of("release").is_some();
         if !(cfg!(target_os = "macos") && cfg!(target_arch = "aarch64")) {
